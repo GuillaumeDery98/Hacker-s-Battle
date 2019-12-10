@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: "Iceberg", cursive;
+  color: rgba(1, 255, 255, 1);
+  background-color: black;
+}
