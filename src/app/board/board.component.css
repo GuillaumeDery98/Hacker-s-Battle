@@ -8,3 +8,9 @@ td {
   text-align: center;
   cursor: pointer;
 }
+.true {
+  background-color: #01ffff;
+}
+.false {
+  background-color: #fa2e2e;
+}

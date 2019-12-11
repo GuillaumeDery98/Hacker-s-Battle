@@ -5,8 +5,8 @@
       *ngFor="let x of boardX; let j = index"
       (click)="attack(j, i)"
       [ngClass]="{
-        'bg-danger': boardPlayed[i][j] === 0,
-        'bg-info': boardPlayed[i][j] === 2
+        false: boardPlayed[i][j] === 0,
+        true: boardPlayed[i][j] === 2
       }"
     >
       <div *ngIf="boardPlayed[i][j] === -1">🔒</div>
