@@ -1,5 +1,17 @@
+{{ getRandomInt(5) }}
 <table>
-  <tr *ngFor="let x of boardX">
-    <td *ngFor="let y of boardY">🔒</td>
+  <tr *ngFor="let y of boardY; let i = index">
+    <td
+      *ngFor="let x of boardX; let j = index"
+      (click)="attack(j, i)"
+      [ngClass]="{
+        'bg-danger': boardPlayed[i][j] === 0,
+        'bg-info': boardPlayed[i][j] === 2
+      }"
+    >
+      <div *ngIf="boardPlayed[i][j] === -1">🔒</div>
+      <div *ngIf="boardPlayed[i][j] === 0">🛡</div>
+      <div *ngIf="boardPlayed[i][j] === 2">🚪</div>
+    </td>
   </tr>
 </table>
