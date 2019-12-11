@@ -1,0 +1,9 @@
+table {
+  font-size: 2.5rem;
+}
+td {
+  border: 3px solid rgba(1, 255, 255, 1);
+  width: 5rem;
+  height: 5rem;
+  text-align: center;
+}
