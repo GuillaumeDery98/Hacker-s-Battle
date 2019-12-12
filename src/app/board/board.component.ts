@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
   selector: "app-board",
@@ -6,32 +6,24 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./board.component.css"]
 })
 export class BoardComponent implements OnInit {
-  verifId: number = 0;
-  boardID: number;
+  @Input() boardID: number;
   boardX: number[];
   boardY: number[][] = [];
   boardPlayed: number[][] = [];
   value: number = 0;
   random: number = 0;
-
+  randomX: number = 0;
+  randomY: number = 0;
+  door: number = 5;
   createBoard(boardTaille: number) {
-    if (this.verifId > 0) {
-      this.boardID = 2;
-    } else {
-      this.boardID = 1;
-    }
     for (var j = 1; j <= boardTaille; j++) {
       this.boardX = [];
       for (var i = 1; i <= boardTaille; i++) {
-        this.getRandomInt(boardTaille);
-        if (this.random > 3) {
-          this.boardX.push(2);
-        } else {
-          this.boardX.push(0);
-        }
+        this.boardX.push(0);
       }
       this.boardY.push(this.boardX);
     }
+    this.placeDoor(boardTaille);
     for (var j = 1; j <= boardTaille; j++) {
       this.boardX = [];
       for (var i = 1; i <= boardTaille; i++) {
@@ -41,12 +33,21 @@ export class BoardComponent implements OnInit {
     }
   }
 
-  getRandomInt(boardTaille: number) {
-    this.random = Math.floor(Math.random() * Math.floor(5));
+  placeDoor(boardTaille: number) {
+    for (var i = 0; i < boardTaille; i++) {
+      this.randomX = Math.floor(Math.random() * Math.floor(boardTaille));
+      this.randomY = Math.floor(Math.random() * Math.floor(boardTaille));
+      if (this.boardY[this.randomY][this.randomX] != 2) {
+        this.boardY[this.randomY][this.randomX] = 2;
+      } else {
+        i--;
+      }
+    }
   }
 
   attack(x: number, y: number) {
     console.log(y, x);
+    console.log(this.boardID);
 
     this.boardPlayed[y][x] = this.boardY[y][x];
   }
