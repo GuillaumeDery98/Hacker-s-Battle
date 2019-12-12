@@ -14,3 +14,7 @@ td {
 .false {
   background-color: #fa2e2e;
 }
+.info {
+  background-color: black !important;
+  padding-bottom: 0.5rem;
+}

@@ -1,15 +1,83 @@
 <div class="container">
   <div class="row mb-sm-3 mt-sm-2 mb-md-5 mt-md-4">
     <div class="col-12 text-center">
-      <h1>Hacker's Battle</h1>
+      <h1>{{ title }}</h1>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center">
-      <app-board boardID="1"></app-board>
+  <div class="row" *ngIf="!run">
+    <p class="col-12">
+      Les Anonymous font passer un test a plusieurs hackers voulant les
+      rejoindre.<br />
+      Ils ont crée plusieurs programmes contenant des backdoor.<br />
+      Le premier hackeur parvenant à toutes les trouvées pourra rejoindre le
+      prestigieux groupe !
+    </p>
+    <form class="col-12">
+      <div class="form-group">
+        <label for="nbrjoueur">Nombre de joueurs</label>
+        <select
+          class="form-control"
+          id="nbrjouer"
+          name="nbrjouer"
+          [(ngModel)]="nbrJoueur"
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="difficulte">Difficultée</label>
+        <select
+          class="form-control"
+          id="nbrjouer"
+          name="difficulte"
+          [(ngModel)]="difficulte"
+        >
+          <option value="3">Bébé hackeur</option>
+          <option value="5" selected>Hacker initié</option>
+          <option value="7">Hackeur barbu</option>
+        </select>
+      </div>
+    </form>
+    <button (click)="commencer()">Commencer</button>
+  </div>
+  <div *ngIf="run">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center">
+        <app-board
+          boardID="1"
+          [ngClass]="{ disable: !boolBoard1 }"
+          (click)="enableBoard1()"
+        ></app-board>
+      </div>
+      <div
+        class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center"
+        *ngIf="nbrJoueurValid > 1"
+      >
+        <app-board
+          boardID="2"
+          [ngClass]="{ disable: !boolBoard2 }"
+          (click)="enableBoard2()"
+        ></app-board>
+      </div>
     </div>
-    <div class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center">
-      <app-board boardID="2"></app-board>
+    <div class="row" *ngIf="nbrJoueurValid > 2">
+      <div class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center">
+        <app-board
+          boardID="3"
+          [ngClass]="{ disable: !boolBoard3 }"
+          (click)="enableBoard3()"
+        ></app-board>
+      </div>
+      <div class="col-sm-12 col-md-6 mb-4 d-flex justify-content-center">
+        <app-board
+          boardID="4"
+          [ngClass]="{ disable: !boolBoard4 }"
+          (click)="enableBoard4()"
+        ></app-board>
+      </div>
     </div>
   </div>
 </div>
+<div id="diff" class="hide">{{ difficulte }}</div>

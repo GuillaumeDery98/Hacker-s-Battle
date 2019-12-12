@@ -1,0 +1,7 @@
+.disable {
+  background-color: rgba(153, 153, 153, 0.2) !important;
+  pointer-events: none;
+}
+.hide {
+  color: black;
+}
