@@ -15,7 +15,9 @@ export class AppComponent {
   difficulte: number = 5;
   nbrJoueurValid: number = 2;
   difficulteValid: number = 5;
+  fin: boolean = false;
   title = "Hacker's Battle";
+
   commencer() {
     this.nbrJoueurValid = this.nbrJoueur;
     this.difficulteValid = this.difficulte;
@@ -23,41 +25,57 @@ export class AppComponent {
     console.log(this.nbrJoueurValid, this.difficulteValid);
   }
   enableBoard1() {
-    if (this.nbrJoueurValid == 4) {
-      this.boolBoard1 = false;
-      this.boolBoard2 = true;
-      this.boolBoard3 = false;
-      this.boolBoard4 = false;
-    }
-    if (this.nbrJoueurValid == 2) {
-      this.boolBoard1 = false;
-      this.boolBoard2 = true;
+    if (this.fin != true) {
+      if (this.nbrJoueurValid == 4) {
+        this.boolBoard1 = false;
+        this.boolBoard2 = true;
+        this.boolBoard3 = false;
+        this.boolBoard4 = false;
+      }
+      if (this.nbrJoueurValid == 2) {
+        this.boolBoard1 = false;
+        this.boolBoard2 = true;
+      }
     }
   }
   enableBoard2() {
-    if (this.nbrJoueurValid == 4) {
-      this.boolBoard3 = true;
-      this.boolBoard1 = false;
-      this.boolBoard2 = false;
-      this.boolBoard4 = false;
-    }
-    if (this.nbrJoueurValid == 2) {
-      this.boolBoard2 = false;
-      this.boolBoard1 = true;
+    if (this.fin != true) {
+      if (this.nbrJoueurValid == 4) {
+        this.boolBoard3 = true;
+        this.boolBoard1 = false;
+        this.boolBoard2 = false;
+        this.boolBoard4 = false;
+      }
+      if (this.nbrJoueurValid == 2) {
+        this.boolBoard2 = false;
+        this.boolBoard1 = true;
+      }
     }
   }
   enableBoard3() {
-    this.boolBoard4 = true;
-    this.boolBoard3 = false;
-    this.boolBoard1 = false;
-    this.boolBoard2 = false;
+    if (this.fin != true) {
+      this.boolBoard4 = true;
+      this.boolBoard3 = false;
+      this.boolBoard1 = false;
+      this.boolBoard2 = false;
 
-    console.log("enable board 2");
+      console.log("enable board 2");
+    }
   }
   enableBoard4() {
-    this.boolBoard4 = false;
-    this.boolBoard1 = true;
-    this.boolBoard3 = false;
-    this.boolBoard2 = false;
+    if (this.fin != true) {
+      this.boolBoard4 = false;
+      this.boolBoard1 = true;
+      this.boolBoard3 = false;
+      this.boolBoard2 = false;
+    }
+  }
+  enableAllBoard() {
+    console.log("stopped");
+    this.fin = true;
+    console.log(this.fin);
+  }
+  refresh(): void {
+    window.location.reload();
   }
 }
