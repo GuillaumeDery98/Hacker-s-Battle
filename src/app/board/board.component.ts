@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { AppComponent } from "../app.component";
 
 @Component({
   selector: "app-board",
@@ -16,8 +15,7 @@ export class BoardComponent implements OnInit {
   randomX: number = 0;
   randomY: number = 0;
   door: number = 0;
-  app = new AppComponent();
-  difficulte: number = this.app.difficulteValid;
+  @Input() difficulte: number;
 
   createBoard(boardTaille: number) {
     for (var j = 1; j <= boardTaille; j++) {
@@ -64,9 +62,6 @@ export class BoardComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    console.log(this.app.difficulteValid);
     this.createBoard(this.difficulte);
-    console.log(this.app.difficulteValid);
-    console.log(this.app);
   }
 }
