@@ -16,6 +16,21 @@ Pour ce projet, je me suis lancé le **défi de travailler avec AngularJS alors 
 ## Mockups sous Figma
 
 ### Version mobile
-![mobile]{images/mobile.png}
+
+![mobile](images/mobile.png)
+
 ### Version desktop
-![dekstop]{images/desktop.png}
+
+![dekstop](images/desktop.png)
+
+
+## Version finale
+
+### Version mobile
+
+![mobile](images/mobile-final.png)
+
+### Version desktop
+
+![dekstop](images/menu-desktop-fianl.png)  
+![dekstop](images/desktop-final.png)
