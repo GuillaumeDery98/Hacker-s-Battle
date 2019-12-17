@@ -8,14 +8,14 @@ Pour ce projet, je me suis lancé le **défi de travailler avec AngularJS alors 
 
 ## Technologies utilisées
 
-*AngularJS
-*HTML
-*CSS
-*Bootstrap
+* AngularJS
+* HTML
+* CSS
+* Bootstrap
 
-##Mockups sous Figma
+## Mockups sous Figma
 
-###Version mobile
+### Version mobile
 ![mobile]{images/mobile.png}
-###Version desktop
+### Version desktop
 ![dekstop]{images/desktop.png}
