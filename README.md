@@ -13,7 +13,7 @@ Pour ce projet, je me suis lancé le **défi de travailler avec AngularJS alors 
 * CSS
 * Bootstrap
 
-## Mockups Low Fidelity sous Figma
+## Mockups Low Fidelity
 
 ### Version mobile
 
